@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contact | Naawi-Oodena</title>
+    <link rel="icon" href="Images/icon2.png" type="image/png" />
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script defer src="scrollbar.js"></script>
+    <link rel="stylesheet" href="CSS/stylesheets.css" />
+    <style>
+      /* Style for the body element i.e. <body> */
+      body {
+        overflow: hidden;
+      }
+
+      /* style of an element with id = "cursor" */
+      #cursor {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #000000;
+        position: absolute;
+        pointer-events: none;
+        /* Prevent the cursor from interfering with other elements */
+        transform: translate(-34%, -10%);
+        z-index: 34934954;
+      }
+
+      /* style of an element with class name = "ripple" */
+      .ripple {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        animation: rippleAnimation 0.2s ease-in-out;
+        z-index: 239994394;
+      }
+
+      /* keyframes animation named "rippleAnimation"  */
+      @keyframes rippleAnimation {
+        /* animation endpoint */
+        to {
+          transform: scale(12);
+          opacity: 0;
+        }
+      }
+
+      /* style of h2 tags */
+      h2 {
+        text-align: center;
+      }
+
+      /* style of an element with class name = "cotainer" */
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 7% 30% 0px 30%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+      }
+
+      /* style of the form */
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      /* style of the label element */
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* style of all input and textarea */
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: solid 2px #dddddd;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border-radius: 0.3rem;
+        transition: all 0.5s;
+      }
+
+      /* style of the button elements */
+      button {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8rem;
+        cursor: pointer;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+        transition: all 0.2s;
+        text-align: center;
+        margin-left: 45%;
+      }
+
+      /* style of the button element when mouse is over it */
+      button:hover {
+        background-color: #ee6352;
+      }
+
+      /* style of the footer element */
+      footer {
+        width: 100%;
+        background-color: #ffffff;
+      }
+
+      /* style of the canvas element */
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -100;
+      }
+
+      /* style of the elements with class name = "message-container" */
+      .message-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .message-container .bot-emoji {
+        margin-right: 10px;
+        /* Adjust the margin as needed */
+      }
+
+      #user-input::placeholder {
+        color: #aaa;
+        /* Adjust the color as needed */
+      }
+
+      #suggestion-list {
+        background-color: #fff;
+
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-height: 100px;
+        overflow-y: auto;
+        padding-top: 10px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 10px;
+        /* Add margin to create space between the chat container and suggestion list */
+
+        padding-bottom: 15px;
+      }
+
+      #suggestion-list li {
+        cursor: pointer;
+        padding: 5px;
+
+        border-radius: 3px;
+        margin-bottom: 5px;
+      }
+
+      #suggestion-list li:hover {
+        background-color: #f0f0f0;
+      }
+
+      .suggestion {
+        border-radius: 2rem;
+        padding: 8px;
+        cursor: pointer;
+        transition: all 0.13s;
+      }
+
+      .suggestion:hover {
+        border-radius: 8rem;
+        background-color: #ee6352;
+        /* Red color for the hover effect */
+        color: #fff;
+        /* White text color for better visibility */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="cursor"></div>
+    <nav>
+      <!-- Navigation Container -->
+      <div class="heading" id="myHeader">
+        <!-- Header Section -->
+        <div class="navbar">
+          <!-- Navbar Container -->
+
+          <!-- Logo -->
+          <a href="index.html"
+            ><img src="Images/Logo2.png" class="logo" alt="Naawi Oodena Logo"
+          /></a>
+
+          <!-- Navigation Links -->
+          <ul class="links">
+            <!-- Home Link -->
+            <li>
+              <a href="index.html">
+                <img
+                  class="linkIcon"
+                  src="Images/public_FILL1_wght400_GRAD0_opsz24.png"
+                  alt="Home Page" />
+                <span class="spanText">HOME</span>
+              </a>
+            </li>
+
+            <!-- Living Link -->
+            <li>
+              <a href="life.html">
+                <img
+                  class="linkIcon"
+                  src="Images/home_FILL1_wght400_GRAD0_opsz24.png"
+                  alt="Living Page" />
+                <span class="spanText">LIVING</span>
+              </a>
+            </li>
+
+            <!-- Contact Link -->
+            <li>
+              <a href="contact-us.html">
+                <img
+                  class="linkIcon"
+                  src="Images/image (8).png"
+                  alt="Contact Support Page" />
+                <span class="spanText" style="color: #ee6352">CONTACT</span>
+              </a>
+            </li>
+
+            <!-- Assistant Link -->
+            <li>
+              <a href="chatbot.html">
+                <img
+                  class="linkIcon"
+                  src="Images/smart_toy_FILL1_wght400_GRAD0_opsz24.png"
+                  alt="Assistant Page" />
+                <span class="spanText">ASSISTANT</span>
+              </a>
+            </li>
+
+            <!-- Media Link -->
+            <li>
+              <a href="list.html">
+                <img
+                  class="linkIcon"
+                  src="Images/videocam_FILL1_wght400_GRAD0_opsz24.png"
+                  alt="Video List Page" />
+                <span class="spanText">MEDIA</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section>
+        <div class="container">
+          <form id="contactForm">
+            <h2>Contact Us</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <div class="padding-block"></div>
+    <canvas id="trianglesCanvas"></canvas>
+
+    <script>
+      const canvas = document.getElementById("trianglesCanvas"); // get element with id "trianglesCanvas"
+      const ctx = canvas.getContext("2d"); // Get the 2D rendering context of the canvas
+      const numberOfTriangles = 50; //number of triangles to be generated
+      const triangles = [];
+
+      function init() {
+        // Set the width and height of the canvas to match the window dimensions
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Generate random parameters for each triangle and store them in the 'triangles' array
+        for (let i = 0; i < numberOfTriangles; i++) {
+          triangles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 20 + 10,
+            speed: Math.random() * 0.3,
+            angle: Math.random() * 360,
+          });
+        }
+
+        animate(); // call animate function
+      }
+
+      function drawTriangle(x, y, size, angle) {
+        ctx.save(); // Save the current state of the drawing context
+        ctx.translate(x, y); // set the origin of the canvas to the (x, y) position
+        ctx.rotate((angle * Math.PI) / 180); // Rotate the canvas
+        ctx.beginPath(); // begin a path
+        ctx.moveTo(0, -size / 2); // Move the drawing point
+        ctx.lineTo(size / 2, size / 2); // Draw a line
+        ctx.lineTo(-size / 2, size / 2); // Draw a line
+        ctx.closePath(); // close the path
+        ctx.fillStyle = "rgba(0, 0, 0, .06)"; // fill color
+        ctx.fill(); // fill with above color
+        ctx.restore(); // restore to save state
+      }
+
+      function animate() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // loop through each triangle in the 'triangles' array
+        triangles.forEach((triangle) => {
+          triangle.x += triangle.speed;
+          // Check if the triangle moved off the right edge of the canvas
+          if (triangle.x - triangle.size / 2 > canvas.width) {
+            triangle.x = -triangle.size / 2;
+          }
+
+          triangle.angle += triangle.speed;
+
+          // Draw the updated triangle
+          drawTriangle(triangle.x, triangle.y, triangle.size, triangle.angle);
+        });
+
+        requestAnimationFrame(animate); // call function
+      }
+
+      window.addEventListener("resize", () => {
+        // on resize event call init() function
+        init();
+      });
+
+      init();
+    </script>
+
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-spinner"></div>
+    </div>
+    <script src="submitForm.js"></script>
+    <script src="loading.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // on HTML document load
+        var cursor = document.getElementById("cursor"); // get elemen with id "cursor"
+        var body = document.body; // get body element
+
+        document.addEventListener("mousemove", function (e) {
+          var x = e.clientX; // get mouse x coordinate
+          var y = e.clientY; // get mouse y coordinate
+
+          // get scroll offset horizontal and vertical
+          var scrollX = window.scrollX || window.pageXOffset;
+          var scrollY = window.scrollY || window.pageYOffset;
+
+          // set cursor div position (left and top) as per mouse coordinate
+          cursor.style.left = x + scrollX + "px";
+          cursor.style.top = y + scrollY + "px";
+        });
+
+        body.addEventListener("click", function (e) {
+          // on click on anywhere on body element
+          createRipple(e.clientX, e.clientY);
+        });
+
+        function createRipple(x, y) {
+          var ripple = document.createElement("div"); // Create a new div element
+          ripple.className = "ripple"; // Set the class name of the div element
+
+          // Set the position (left and top) of the div as perthe mouse click coordinates
+          ripple.style.left = x + window.scrollX + "px";
+          ripple.style.top = y + window.scrollY + "px";
+          body.appendChild(ripple); // Append the div element in the body
+
+          ripple.addEventListener("animationend", function () {
+            // when animation ends remove the ripple div
+            ripple.remove();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
